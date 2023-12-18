@@ -31,6 +31,7 @@ const crear = (req, res) => {
 
 };
 //Buscar recurso por ID
+/*
 const buscarId = (req, res) => {
     const id = req.params.id;
     if (id == null) {
@@ -48,6 +49,29 @@ const buscarId = (req, res) => {
         });
     });
 
+}
+*/
+const buscarId = (req, res) => {
+    const id = req.params.id;
+    if (id == null) {
+        res.status(203).json({
+            mensaje: `El id no puede estar vacio`
+        });
+        return;
+    }
+    mascotagp.findByPk(id).then((resultado) => {
+        if (resultado) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(404).json({
+                mensaje: `Registro no encontrado`
+            });
+        }
+    }).catch((err) => {
+        res.status(500).json({
+            mensaje: `Error al buscar el registro: ${err}`
+        });
+    });
 }
 //Buscar recurso por ID
 const buscar = (req, res) => {
