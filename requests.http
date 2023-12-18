@@ -1,0 +1,70 @@
+GET http://localhost:8000/mascotagp/buscar HTTP/1.1
+
+###
+POST http://localhost:8000/mascotagp/crear HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre":"rayo",
+    "edad": 2,
+    "raza": "pomerania",
+    "gusto": "perro"
+}
+
+###
+GET http://localhost:8000/mascotagp/buscarId/7 HTTP/1.1
+
+###
+PUT http://localhost:8000/mascotagp/actualizar/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre":"princesa",
+    "edad":4,
+    "raza": "canino",
+    "gusto": "perro"
+}
+
+###
+DELETE http://localhost:8000/mascotagp/eliminar/7 HTTP/1.1
+
+###
+DELETE http://localhost:8000/mascotagp/eliminarTodo HTTP/1.1
+
+// crear todas estas para adopción
+###
+
+GET http://localhost:8000/adopcion/buscar HTTP/1.1
+
+###
+POST http://localhost:8000/adopcion/crear HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre":"andres",
+    "edad": 22,
+    "correo": "ghoryiand@gmail.com",
+    "residencia": "tumaco",
+    "telefono": 3188342286
+    
+}
+
+###
+GET http://localhost:8000/adopcion/buscarId/6 HTTP/1.1
+
+###
+PUT http://localhost:8000/adopcion/actualizar/6 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre":"princesa",
+    "edad":4,
+    "raza": "canino",
+    "gusto": "perro"
+}
+
+###
+DELETE http://localhost:8000/adopcion/eliminar/3 HTTP/1.1
+
+###
+DELETE http://localhost:8000/adopcion/eliminarTodo HTTP/1.1
