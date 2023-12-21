@@ -51,6 +51,7 @@ const buscarId = (req, res) => {
 
 }
 */
+
 const buscarId = (req, res) => {
     const id = req.params.id;
     if (id == null) {
@@ -73,6 +74,7 @@ const buscarId = (req, res) => {
         });
     });
 }
+
 //Buscar recurso por ID
 const buscar = (req, res) => {
 

@@ -11,7 +11,7 @@ routermascotagp.get("/", (req, res) => {
 routermascotagp.post("/crear", (req, res) => {
     crear(req, res);
 });
-routermascotagp.get("/buscar/:id", (req, res) => {
+routermascotagp.get("/buscarId/:id", (req, res) => {
     buscarId(req, res);
 });
 routermascotagp.get("/buscar", (req, res) => {
