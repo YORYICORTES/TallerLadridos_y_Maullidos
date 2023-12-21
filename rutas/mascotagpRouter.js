@@ -25,9 +25,7 @@ routermascotagp.delete("/eliminar/:id", (req, res) => {
 });
 // para personas
 
-routeradopcion.get("/", (req, res) => {
-    res.send("Bienvenido a Ladridos y Maullidos");
-});
+
 routeradopcion.post("/crear", (req, res) => {
     crearad(req, res);
 });

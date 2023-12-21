@@ -190,7 +190,8 @@ const buscarIdad = (req, res) => {
     });
 
 }
-//Buscar recurso por ID
+//Buscar recurso 
+
 const buscarad = (req, res) => {
 
     adopcion.findAll().then((resultado) => {
@@ -202,6 +203,8 @@ const buscarad = (req, res) => {
     });
 
 };
+
+
 
 //Actualizar un recurso
 
@@ -255,4 +258,5 @@ const eliminarad = (req, res) => {
 
 }
 
-export { crear, buscarId, buscar, actualizar, eliminar, crearad, buscarIdad, buscarad, actualizarad, eliminarad }
+export { crear, buscarId, buscar, actualizar, eliminar, 
+    crearad, buscarIdad, buscarad, actualizarad, eliminarad }
