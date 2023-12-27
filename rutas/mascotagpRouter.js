@@ -1,5 +1,6 @@
 import express from "express";
-import { crear, buscarId, buscar, actualizar, eliminar, crearad, buscarIdad, buscarad, actualizarad, eliminarad } from "../controladores/mascotagpController.js";
+import { crear, buscarId, buscar, actualizar, eliminar, eliminarTodo, 
+    crearad, buscarIdad, buscarad, actualizarad, eliminarad, eliminarTodoad } from "../controladores/mascotagpController.js";
 const routermascotagp = express.Router();
 //para persona
 const routeradopcion = express.Router();
@@ -23,17 +24,20 @@ routermascotagp.put("/actualizar/:id", (req, res) => {
 routermascotagp.delete("/eliminar/:id", (req, res) => {
     eliminar(req, res);
 });
+routermascotagp.delete("/eliminarTodo", (req, res) => {
+    eliminarTodo(req, res);
+});
 // para personas
 
 
 routeradopcion.post("/crear", (req, res) => {
     crearad(req, res);
 });
-routeradopcion.get("/buscar/:id", (req, res) => {
+routeradopcion.get("/buscarId/:id", (req, res) => {
     buscarIdad(req, res);
 });
 routeradopcion.get("/buscar", (req, res) => {
-    buscaraad(req, res);
+    buscarad(req, res);
 });
 routeradopcion.put("/actualizar/:id", (req, res) => {
     actualizarad(req, res);
@@ -41,5 +45,7 @@ routeradopcion.put("/actualizar/:id", (req, res) => {
 routeradopcion.delete("/eliminar/:id", (req, res) => {
     eliminarad(req, res);
 });
-
+routeradopcion.delete("/eliminarTodo", (req, res) => {
+    eliminarTodoad(req, res);
+});
 export { routermascotagp, routeradopcion }

@@ -136,9 +136,23 @@ const eliminar = (req, res) => {
                 mensaje: `Error al eliminar Registro ::: ${err}`
             });
         })
-
-
 };
+
+
+const eliminarTodo = (req, res) => {
+    mascotagp.destroy({ where: {} })
+        .then((resultado) => {
+            res.status(200).json({
+                mensaje: "Todos los registros han sido eliminados"
+            });
+        })
+        .catch((err) => {
+            res.status(500).json({
+                mensaje: `Error al eliminar todos los registros de mascotas ::: ${err}`
+            });
+        });
+};
+
 
 // para personas
 
@@ -172,6 +186,7 @@ const crearad = (req, res) => {
 
 };
 //Buscar recurso por ID
+/*
 const buscarIdad = (req, res) => {
     const id = req.params.id;
     if (id == null) {
@@ -190,20 +205,43 @@ const buscarIdad = (req, res) => {
     });
 
 }
-//Buscar recurso 
+*/
 
+//************************************************** */
+const buscarIdad = (req, res) => {
+    const id = req.params.id;
+    if (id == null) {
+        res.status(203).json({
+            mensaje: `El id persona no puede estar vacio`
+        });
+        return;
+    }
+    adopcion.findByPk(id).then((resultado) => {
+        if (resultado) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(404).json({
+                mensaje: `Registro no encontrado con id persona`
+            });
+        }
+    }).catch((err) => {
+        res.status(500).json({
+            mensaje: `Error al buscar el registro de persona por id: ${err}`
+        });
+    });
+}
+//Buscar recurso 
 const buscarad = (req, res) => {
 
     adopcion.findAll().then((resultado) => {
         res.status(200).json(resultado);
     }).catch((err) => {
         res.status(500).json({
-            mensaje: `No se encontraron Registros personas::: ${err}`
+            mensaje: `No se encontraron Registros ::: ${err}`
         });
     });
 
 };
-
 
 
 //Actualizar un recurso
@@ -256,7 +294,22 @@ const eliminarad = (req, res) => {
             });
         });
 
+};
+const eliminarTodoad = (req, res) => {
+    adopcion.destroy({ where: {} })
+        .then((resultado) => {
+            res.status(200).json({
+                mensaje: "Todos los registros de adopcion han sido eliminados"
+            });
+        })
+        .catch((err) => {
+            res.status(500).json({
+                mensaje: `Error al eliminar todos los registros de adopcion ::: ${err}`
+            });
+        });
 }
 
-export { crear, buscarId, buscar, actualizar, eliminar, 
-    crearad, buscarIdad, buscarad, actualizarad, eliminarad }
+export {
+    crear, buscarId, buscar, actualizar, eliminar, eliminarTodo,
+    crearad, buscarIdad, buscarad, actualizarad, eliminarad, eliminarTodoad
+}
